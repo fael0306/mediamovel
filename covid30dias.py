@@ -13,7 +13,15 @@ with open("C:\\Users\\f0fp1107\Desktop\\covid30dias.txt") as f:
 media = np.average(dados).round(2)
 desv = np.std(dados).round(2)
 
-print("A média de casos por dia é: ",media,"+-",desv)
+#print("A média de casos por dia é: ",media,"+-",desv)
+
+arq = open("mediamovel.txt","a")
+arq.write('A média de casos por dia é: ')
+arq.write(str(media))
+arq.write("+-")
+arq.write(str(desv))
+arq.close()
+
 for k in range(0,len(dados)):
     soma=soma+dados[k]
     cont = cont+1
