@@ -21,4 +21,5 @@ for k in range(0,len(dados)):
         mediamovel.append(soma/cont)
 
 plt.plot(mediamovel)
+plt.savefig("grafico.png")
 plt.show()
