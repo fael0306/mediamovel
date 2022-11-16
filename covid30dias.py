@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 dados = []
 mediamovel = []
+x = []
 cont=0
 soma=0
 
@@ -28,6 +29,9 @@ for k in range(0,len(dados)):
     if(k>=int(np.sqrt(len(dados)))):
         mediamovel.append(soma/cont)
 
-plt.plot(mediamovel)
+for k in range(int(np.sqrt(len(dados))),len(dados)):
+    x.append(k)
+
+plt.plot(x,mediamovel)
 plt.savefig("grafico.png")
 #plt.show()
