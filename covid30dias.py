@@ -28,6 +28,6 @@ for k in range(0,len(dados)):
     if(k>=int(np.sqrt(len(dados)))):
         mediamovel.append(soma/cont)
 
-#plt.plot(mediamovel)
+plt.plot(mediamovel)
 plt.savefig("grafico.png")
-plt.show()
+#plt.show()
