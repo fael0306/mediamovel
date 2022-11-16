@@ -13,10 +13,6 @@ with open("C:\\Users\\f0fp1107\Desktop\\covid30dias.txt") as f:
 media = np.average(dados).round(2)
 desv = np.std(dados).round(2)
 
-#Caso haja necessidade de plotar gráficos
-#plt.plot(dados)
-#plt.show()
-
 print("A média de casos por dia é: ",media,"+-",desv)
 for k in range(0,len(dados)):
     soma=soma+dados[k]
