@@ -17,7 +17,7 @@ print("A média de casos por dia é: ",media,"+-",desv)
 for k in range(0,len(dados)):
     soma=soma+dados[k]
     cont = cont+1
-    if(k>=6):
+    if(k>=int(np.sqrt(len(dados)))):
         mediamovel.append(soma/cont)
 
 plt.plot(mediamovel)
