@@ -1,0 +1,17 @@
+import numpy as np
+#import matplotlib.pyplot as plt
+
+dados = []
+
+with open("C:\\Users\\f0fp1107\Desktop\\covid30dias.txt") as f:
+    for line in f:
+        dados.append(float(line))
+
+media = np.average(dados).round(2)
+desv = np.std(dados).round(2)
+
+#Caso haja necessidade de plotar gráficos
+#plt.plot(dados)
+#plt.show()
+
+print("A média de casos por dia é: ",media,"+-",desv)
