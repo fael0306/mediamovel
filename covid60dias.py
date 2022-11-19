@@ -26,14 +26,14 @@ arq.write(str(desv))
 arq.close()
 
 # Calculando as médias móveis e incluindo no vetor
-for k in range(0,len(dados)):
-    soma=soma+dados[k]
-    cont = cont+1
-    if(k>=int(np.sqrt(len(dados)))):
-        mediamovel.append(soma/cont)
+tam = int(np.sqrt(len(dados)))
+for k in range(0,len(dados)-tam+1):
+    soma = dados[k:k+tam]
+    media = sum(soma)/tam
+    mediamovel.append(media)
 
 # Limitando os valores de x inferiormente para começar a partir de onde a média móvel passou a ser calculada
-for k in range(int(np.sqrt(len(dados))),len(dados)):
+for k in range(0,len(mediamovel)):
     x.append(k)
 
 # Achando coeficientes da regressão linear
@@ -52,3 +52,4 @@ plt.plot(x,mediamovel)
 plt.savefig("grafico.png")
 
 # Caso seja necessário mostrar o gráfico, é só usar plt.show()
+print(mediamovel)
