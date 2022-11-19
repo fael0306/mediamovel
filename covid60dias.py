@@ -27,20 +27,23 @@ arq.close()
 
 # Calculando as médias móveis e incluindo no vetor
 tam = int(np.sqrt(len(dados)))
-for k in range(0,len(dados)-tam+1):
-    soma = dados[k:k+tam]
-    media = sum(soma)/tam
-    mediamovel.append(media)
+for k in range(tam,len(dados)+1):
+    if k>=tam:
+        for i in range(k-tam,k):
+            soma = soma+dados[i]
+        media = soma/tam
+        mediamovel.append(media)    
+    soma = 0
 
 # Limitando os valores de x inferiormente para começar a partir de onde a média móvel passou a ser calculada
-for k in range(0,len(mediamovel)):
+for k in range(tam,len(dados)+1):
     x.append(k)
 
 # Achando coeficientes da regressão linear
 a1,a2=lr.linear_regression(x,mediamovel)
 
 # Limitando o x da reta de regressão
-xi = np.linspace(int(np.sqrt(len(dados))),120)
+xi = np.linspace(tam,120)
 
 # Plotando a reta usando os coeficientes
 plt.plot(xi,a1*xi+a2)
@@ -52,4 +55,3 @@ plt.plot(x,mediamovel)
 plt.savefig("grafico.png")
 
 # Caso seja necessário mostrar o gráfico, é só usar plt.show()
-print(mediamovel)
